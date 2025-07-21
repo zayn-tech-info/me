@@ -1,6 +1,8 @@
 import { Briefcase } from "lucide-react";
 import React from "react";
 import { motion } from "framer-motion";
+import TypewriterText from "./TypewriterText";
+import me from "../images/me.jpg";
 
 const Herosection = () => {
   return (
@@ -8,8 +10,8 @@ const Herosection = () => {
       <div className="flex items-start justify-start w-full mt-10">
         <motion.img
           className="w-36 h-36 rounded-full"
-          src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt=""
+          src={me}
+          alt="me"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -22,7 +24,19 @@ const Herosection = () => {
         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
       >
         <h1 className="text-4xl font-bold font-sans">
-          Hello, I'm Yakubu Abdulbasit.
+          <span>
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.2 }}
+            >
+              Hello, I'm{" "}
+            </motion.span>
+            <TypewriterText
+              words={["Yakubu Abdulbasit."]}
+              loop={false}
+            />
+          </span>
         </h1>
         <div className="flex items-center bg-green-200 rounded-2xl px-4 py-2 w-64">
           <Briefcase className="inline-block w-7 h-7 mr-2 text-green-500 align-middle" />
