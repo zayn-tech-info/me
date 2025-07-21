@@ -1,35 +1,51 @@
 import React from "react";
 import { ExternalLink } from "lucide-react";
+import Recipeapp from "../images/recipeida.png";
+import Ecommerceapp from "../images/ecommerce.png";
 
 const projects = [
   {
-    title: "Awesome Portfolio",
-    description: "A modern portfolio website built with React and Tailwind CSS.",
-    link: "https://your-portfolio-link.com",
-    tags: ["React", "Tailwind", "Vite"],
+    id: 1,
+    image: Recipeapp,
+    title: "Recipeida",
+    description:
+      "A recipe website with a search bar and a list of recipes. It uses the spoonacular API to fetch recipes. It also has a recipe detail page and a recipe list page. ",
+    link: "https://recipeapp-hz7o.vercel.app/",
+    tags: ["React", "Tailwind", "Vite", "Spoonacular API"],
   },
   {
-    title: "E-commerce Store",
-    description: "A full-featured e-commerce platform with cart and payment integration.",
-    link: "https://your-ecommerce-link.com",
-    tags: ["React", "Redux", "Stripe"],
+    id: 2,
+    title: "Exclusive Shopping",
+    image: Ecommerceapp,
+    description:
+      "A full-featured e-commerce platform with cart and checkout functionality.",
+    link: "https://exclusive-shopping.vercel.app/",
+    tags: ["Html", "Tailwind css", "Javascript"],
   },
-  // Add more projects here...
 ];
 
 const Projects = () => (
   <section className="max-w-5xl mx-auto mt-20 px-4">
-    <h2 className="text-3xl font-bold mb-10 font-sans">Projects</h2>
+    <span className="bg-green-200 rounded-md px-4 mb-10 py-2">
+      <span className="section-title text-xl font-bold ">Projects</span>
+    </span>
     <div className="flex flex-col gap-10">
       {projects.map((project) => (
         <div
           key={project.title}
-          className="bg-white rounded-2xl border border-gray-100 shadow-lg p-8 flex flex-col transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+          className="bg-white rounded-2xl mt-10 border border-gray-100 shadow-lg p-8 flex flex-col transition-transform duration-300 hover:shadow-xl"
         >
-          <h3 className="text-2xl font-bold mb-3 font-sans hover:underline hover:text-green-600 transition-colors duration-200">
+          <h3 className="text-lg font-bold mb-7 font-sans transition-colors duration-200 bg-green-500 text-white inline-block px-4 py-2 rounded-md max-w-max">
             {project.title}
           </h3>
-          <p className="text-brand-gray mb-6">{project.description}</p>
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-48 object-cover rounded-t-2xl"
+          />
+          <p className="text-brand-gray text-sm mt-10 mb-5">
+            {project.description}
+          </p>
           <div className="flex flex-wrap gap-3 mb-6">
             {project.tags.map((tag) => (
               <span
@@ -55,4 +71,4 @@ const Projects = () => (
   </section>
 );
 
-export default Projects; 
+export default Projects;
