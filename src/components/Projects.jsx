@@ -25,7 +25,7 @@ const projects = [
 ];
 
 const Projects = () => (
-  <section className="max-w-5xl mx-auto mt-20 px-4">
+  <section id="projects" className="max-w-5xl mx-auto mt-10 py-10">
     <span className="bg-green-200 rounded-md px-4 mb-10 py-2">
       <span className="section-title text-xl font-bold ">Projects</span>
     </span>

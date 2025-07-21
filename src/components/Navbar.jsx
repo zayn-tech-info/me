@@ -13,6 +13,18 @@ const navItems = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Smooth scroll handler
+  const handleNavClick = (e, href, external) => {
+    if (external || !href.startsWith("#")) return; // Let external links behave normally
+    e.preventDefault();
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+    setMenuOpen(false); // For mobile: close menu after click
+  };
   // Separate blog and nav items for mobile
   const blogButton = (
     <a
@@ -30,7 +42,7 @@ const Navbar = () => {
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
       className="group flex flex-col items-center justify-center rounded-full p-2 bg-transparent text-gray-700 transition-all duration-300 ease-in-out mb-2 focus:outline-none focus:ring-2 focus:ring-green-300"
-      onClick={() => setMenuOpen(false)}
+      onClick={(e) => handleNavClick(e, href, external)}
     >
       <span className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out group-hover:bg-green-100 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-green-200 group-hover:text-green-600 group-hover:scale-110">
         {icon}
@@ -65,6 +77,7 @@ const Navbar = () => {
                 target={external ? '_blank' : undefined}
                 rel={external ? 'noopener noreferrer' : undefined}
                 className="group relative p-2 text-gray-600 transition-all duration-300 ease-in-out rounded-full focus:outline-none focus:ring-2 focus:ring-green-300 flex flex-col items-center justify-center"
+                onClick={(e) => handleNavClick(e, href, external)}
               >
                 <span className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out group-hover:bg-green-100 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-green-200 group-hover:text-green-600 group-hover:scale-110">
                   {icon}
