@@ -7,7 +7,6 @@ const navItems = [
   { href: '#projects', icon: <Briefcase size={22} />, label: 'Projects' },
   { href: '#skills', icon: <Code size={22} />, label: 'Skills' },
   { href: '#contact', icon: <Mail size={22} />, label: 'Contact' },
-  { href: 'https://github.com/zayn-tech-info', icon: <Github size={22} />, label: 'GitHub', external: true },
   { href: '/resume.pdf', icon: <FileText size={22} />, label: 'Resume', external: true },
 ];
 
@@ -25,14 +24,17 @@ const Navbar = () => {
     }
     setMenuOpen(false); // For mobile: close menu after click
   };
-  // Separate blog and nav items for mobile
-  const blogButton = (
+  // Replace the blogButton with a GitHub button styled with your name and GitHub icon
+  const githubButton = (
     <a
-      href="#blog"
+      href="https://github.com/zayn-tech-info"
+      target="_blank"
+      rel="noopener noreferrer"
       className="bg-black text-white rounded-full px-5 py-1.5 font-medium shadow-md border border-gray-800 hover:bg-gray-900 hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out flex items-center justify-center text-base"
-      style={{ minWidth: '90px' }}
+      style={{ minWidth: '44px' }}
+      aria-label="GitHub"
     >
-      My <span className="text-green-500 ml-1">Blog</span>
+      <Github className="w-5 h-5 text-green-500" />
     </a>
   );
   const navGridItems = navItems.map(({ href, icon, label, external }) => (
@@ -65,7 +67,7 @@ const Navbar = () => {
           >
             {menuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
-          <div>{blogButton}</div>
+          <div>{githubButton}</div>
         </div>
         {/* Desktop nav */}
         <div className="hidden md:flex items-center flex-1 justify-between w-full">
@@ -90,7 +92,7 @@ const Navbar = () => {
           </div>
           {/* Divider */}
           <span className="h-6 w-px bg-gray-200 mx-4" />
-          {blogButton}
+          {githubButton}
         </div>
         {/* Mobile dropdown grid */}
         {menuOpen && (
