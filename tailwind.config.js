@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   purge: [
     './src/**/*.{js,jsx,ts,tsx}',
   ],

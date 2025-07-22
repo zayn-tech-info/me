@@ -12,19 +12,18 @@ const navItems = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  // Smooth scroll handler
+ 
   const handleNavClick = (e, href, external) => {
-    if (external || !href.startsWith("#")) return; // Let external links behave normally
+    if (external || !href.startsWith("#")) return; 
     e.preventDefault();
     const id = href.replace("#", "");
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     }
-    setMenuOpen(false); // For mobile: close menu after click
+    setMenuOpen(false);  
   };
-  // Replace the blogButton with a GitHub button styled with your name and GitHub icon
+ 
   const githubButton = (
     <a
       href="https://github.com/zayn-tech-info"
@@ -58,7 +57,7 @@ const Navbar = () => {
   return (
     <div className="w-full flex justify-center mt-7">
       <nav className="relative flex items-center bg-white border border-gray-200 shadow rounded-full px-6 py-2 space-x-4 w-full max-w-4xl">
-        {/* Mobile: toggler and blog button side by side */}
+        
         <div className="flex md:hidden w-full items-center justify-between">
           <button
             className="p-2 text-gray-600 hover:text-indigo-600 focus:outline-none"
@@ -69,7 +68,7 @@ const Navbar = () => {
           </button>
           <div>{githubButton}</div>
         </div>
-        {/* Desktop nav */}
+     
         <div className="hidden md:flex items-center flex-1 justify-between w-full">
           <div className="flex items-center justify-center space-x-1 flex-1">
             {navItems.map(({ href, icon, label, external }) => (
@@ -90,13 +89,13 @@ const Navbar = () => {
               </a>
             ))}
           </div>
-          {/* Divider */}
+    
           <span className="h-6 w-px bg-gray-200 mx-4" />
           {githubButton}
         </div>
-        {/* Mobile dropdown grid */}
+     
         {menuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white border border-gray-200 shadow rounded-b-2xl flex flex-col items-center py-4 z-20 md:hidden animate-fade-in">
+          <div className="absolute top-full left-0 right-5 bg-white border border-gray-200 shadow rounded-b-2xl flex flex-col items-center py-4 z-20 md:hidden animate-fade-in">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 w-full px-4">
               {navGridItems}
             </div>

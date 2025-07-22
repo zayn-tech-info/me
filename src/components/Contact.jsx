@@ -10,7 +10,7 @@ const Contact = () => {
     formState: { errors, isSubmitting },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     toast.success("Message sent! 🚀 ");
     reset();
   };
