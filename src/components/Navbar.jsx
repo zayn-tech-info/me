@@ -93,6 +93,8 @@ const Navbar = () => {
           <span className="h-6 w-px bg-gray-200 mx-4" />
           {githubButton}
         </div>
+
+        {/* KNIWTDTRRTD  */}
      
         {menuOpen && (
           <div className="absolute top-full left-0 right-5 bg-white border border-gray-200 shadow rounded-b-2xl flex flex-col items-center py-4 z-20 md:hidden animate-fade-in">
