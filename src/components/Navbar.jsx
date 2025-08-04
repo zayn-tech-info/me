@@ -7,14 +7,14 @@ const navItems = [
   { href: '#projects', icon: <Briefcase size={22} />, label: 'Projects' },
   { href: '#skills', icon: <Code size={22} />, label: 'Skills' },
   { href: '#contact', icon: <Mail size={22} />, label: 'Contact' },
-  { href: '/resume.pdf', icon: <FileText size={22} />, label: 'Resume', external: true },
+  { href: '/resume.pdf', icon: <FileText size={22} />, label: 'Resume', download: true },
 ];
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
  
-  const handleNavClick = (e, href, external) => {
-    if (external || !href.startsWith("#")) return; 
+  const handleNavClick = (e, href, external, download) => {
+    if (external || download || !href.startsWith("#")) return; 
     e.preventDefault();
     const id = href.replace("#", "");
     const el = document.getElementById(id);
@@ -36,14 +36,15 @@ const Navbar = () => {
       <Github className="w-5 h-5 text-green-500" />
     </a>
   );
-  const navGridItems = navItems.map(({ href, icon, label, external }) => (
+  const navGridItems = navItems.map(({ href, icon, label, external, download }) => (
     <a
       key={label}
       href={href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
+      download={download ? 'resume.pdf' : undefined}
       className="group flex flex-col items-center justify-center rounded-full p-2 bg-transparent text-gray-700 transition-all duration-300 ease-in-out mb-2 focus:outline-none focus:ring-2 focus:ring-green-300"
-      onClick={(e) => handleNavClick(e, href, external)}
+      onClick={(e) => handleNavClick(e, href, external, download)}
     >
       <span className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out group-hover:bg-green-100 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-green-200 group-hover:text-green-600 group-hover:scale-110">
         {icon}
@@ -71,14 +72,15 @@ const Navbar = () => {
      
         <div className="hidden md:flex items-center flex-1 justify-between w-full">
           <div className="flex items-center justify-center space-x-1 flex-1">
-            {navItems.map(({ href, icon, label, external }) => (
+            {navItems.map(({ href, icon, label, external, download }) => (
               <a
                 key={label}
                 href={href}
                 target={external ? '_blank' : undefined}
                 rel={external ? 'noopener noreferrer' : undefined}
+                download={download ? 'resume.pdf' : undefined}
                 className="group relative p-2 text-gray-600 transition-all duration-300 ease-in-out rounded-full focus:outline-none focus:ring-2 focus:ring-green-300 flex flex-col items-center justify-center"
-                onClick={(e) => handleNavClick(e, href, external)}
+                onClick={(e) => handleNavClick(e, href, external, download)}
               >
                 <span className="flex items-center justify-center w-10 h-10 rounded-full transition-all duration-300 ease-in-out group-hover:bg-green-100 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-green-200 group-hover:text-green-600 group-hover:scale-110">
                   {icon}
@@ -94,7 +96,7 @@ const Navbar = () => {
           {githubButton}
         </div>
 
-        {/* KNIWTDTRRTD  */}
+
      
         {menuOpen && (
           <div className="absolute top-full left-0 right-5 bg-white border border-gray-200 shadow rounded-b-2xl flex flex-col items-center py-4 z-20 md:hidden animate-fade-in">
