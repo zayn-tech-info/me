@@ -1,5 +1,5 @@
 export default {
-  purge: [
+  content: [
     './src/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
