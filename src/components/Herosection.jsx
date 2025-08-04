@@ -1,5 +1,5 @@
-import { Briefcase } from "lucide-react";
 import React from "react";
+import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 import TypewriterText from "./TypewriterText";
 import me from "../images/me.jpg";
