@@ -22,7 +22,7 @@ function useInView(options = {}) {
   return [ref, inView];
 }
 
-// Typewriter effect for multiple paragraphs
+ 
 const paragraphs = [
   "Hey, I'm Yakubu Abdulbasit, a self-taught developer passionate about turning ideas into clean, responsive, and user-friendly web experiences. I love building things that not only work but also feel great to use.",
   "I've been working with HTML, CSS, JavaScript, React.js, and Tailwind CSS, constantly sharpening my skills through real-world projects, collaborative builds, and daily practice. Whether it's crafting small UI components or developing full web applications, I enjoy every step of the creative process.",
