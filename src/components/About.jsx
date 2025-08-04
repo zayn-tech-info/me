@@ -73,7 +73,7 @@ const About = () => {
   const [ref, inView] = useInView({ threshold: 0.2 });
   return (
     <>
-      <div id="about" className="mt-10 py-10">
+      <div id="about" className="mt-10 py-10 h-96">
         <span className="bg-green-200 rounded-md px-4 mt-3 py-2">
           <span className="section-title text-xl font-bold ">About me</span>
         </span>
