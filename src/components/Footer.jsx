@@ -7,10 +7,11 @@ const socials = [
     icon: <Github className="w-5 h-5" />, label: "GitHub"
   },
   {
-    href: "https://linkedin.com/in/your-linkedin", // Replace with your LinkedIn
+    href: "www.linkedin.com/in/zayntechinfo", 
     icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn"
   }
 ];
+
 
 const Footer = () => (
   <footer className="mt-16 py-8 border-t border-gray-200 bg-white text-center text-brand-gray">
