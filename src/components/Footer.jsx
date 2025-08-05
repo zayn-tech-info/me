@@ -7,7 +7,7 @@ const socials = [
     icon: <Github className="w-5 h-5" />, label: "GitHub"
   },
   {
-    href: "https://linkedin.com/in/zayntechinfo", // Replace with your LinkedIn
+    href: "https://linkedin.com/in/zayntechinfo", // 
     icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn"
   }
 ];
