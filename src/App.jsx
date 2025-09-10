@@ -6,14 +6,16 @@ import Footer from './components/Footer'
 
 const App = () => {
   return (
-    <div className="px-4 md:px-8 max-w-2xl mx-auto">
-      <Navbar />
+    <div>
+      <div className='px-4 md:px-8 max-w-2xl mx-auto'>
+        <Navbar />
+      </div>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path="/" element={<Home />} />
       </Routes>
       <Footer />
     </div>
-  )
+  );
 }
 
 export default App

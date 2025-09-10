@@ -22,7 +22,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-12 px-4 md:px-16 bg-gradient-to-br from-green-100 via-green-200 to-green-300 rounded-3xl shadow-2xl max-w-3xl mx-auto mt-10 border border-gray-100 relative"
+      className="max-w-2xl mx-auto py-12 px-4 md:px-16 bg-gradient-to-br from-green-100 via-green-200 to-green-300 rounded-3xl shadow-2xl mt-10 border border-gray-100 relative"
     >
       <span className="bg-green-200 rounded-md px-4 mb-10 py-2 inline-block">
         <span className="section-title text-xl font-bold ">Skills</span>
