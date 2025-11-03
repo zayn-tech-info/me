@@ -1,53 +1,46 @@
-import React, { useEffect, useState } from "react";
-import { FaArrowUp } from "react-icons/fa";
-import { motion } from "framer-motion";
-import { skills } from "../../utils/constants";
-import SkillsComponent from "./SkillsComponent";
+import React from "react";
+import Marquee from "react-fast-marquee";
+import SkillBgImg from "../../images/skill_backgroud.jpg";
 
-const Skills = () => {
-  const [showTop, setShowTop] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      const trigger = window.innerHeight * 0.6;
-      setShowTop(window.scrollY > trigger);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const handleBackToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+const SkillsMarquee = () => {
+  const skills = [
+    "JavaScript",
+    "ReactJS",
+    "NodeJS",
+    "HTML",
+    "CSS",
+    "Tailwind CSS",
+    "Mongoose",
+    "NextJS",
+    "Python",
+  ];
 
   return (
-    <section
-      id="skills"
-      className="max-w-2xl mx-auto py-12 px-4 md:px-16 bg-gradient-to-br from-green-100 via-green-200 to-green-300 rounded-3xl shadow-2xl mt-10 border border-gray-100 relative"
+    <div
+      style={{ backgroundImage: `url(${SkillBgImg})` }}
+      className={`relative   bg-cover bg-center py-6 my-10 overflow-hidden`}
     >
-      <span className="bg-green-200 rounded-md px-4 mb-10 py-2 inline-block">
-        <span className="section-title text-xl font-bold ">Skills</span>
-      </span>
-      <div className="grid grid-cols-2 gap-12 mt-8">
-        {skills.map((skill, idx) => (
-          <SkillsComponent key={skill.name} skill={skill} idx={idx} />
-        ))}
-      </div>
+      <div className="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-gray-400 to-transparent z-10"></div>
+      <div className="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-gray-400 to-transparent z-10"></div>
 
-      <motion.button
-        onClick={handleBackToTop}
-        className="fixed bottom-8 right-8 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-transform duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-300"
-        aria-label="Back to top"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={
-          showTop ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
-        }
-        transition={{ duration: 0.3 }}
-        style={{ pointerEvents: showTop ? "auto" : "none" }}
+      <Marquee
+        gradient={false}
+        speed={50}
+        pauseOnHover
+        className="flex items-center"
       >
-        <FaArrowUp size={22} />
-      </motion.button>
-    </section>
+        {skills.map((skill, index) => (
+          <span
+            key={index}
+            id="skills"
+            className="bg-white text-black h-10 px-6 py-10 mx-3 rounded-full font-semibold shadow-md whitespace-nowrap"
+          >
+            {skill}
+          </span>
+        ))}
+      </Marquee>
+    </div>
   );
 };
 
-export default Skills;
+export default SkillsMarquee;

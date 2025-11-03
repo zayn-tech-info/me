@@ -56,8 +56,8 @@ const Navbar = () => {
   ));
 
   return (
-    <div className="w-full flex justify-center mt-7">
-      <nav className="relative flex items-center bg-white border border-gray-200 shadow rounded-full px-6 py-2 space-x-4 w-full max-w-4xl">
+    <div className="w-full flex justify-center">
+      <nav className="relative flex items-center bg-white border border-gray-200 shadow rounded-full px-6 py-2 space-x-4 w-full max-w-4xl fall-in">
         
         <div className="flex md:hidden w-full items-center justify-between">
           <button

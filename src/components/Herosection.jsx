@@ -6,11 +6,11 @@ import me_ from "../images/me_.jpg";
 
 const Herosection = () => {
   return (
-    <div className="px-4 md:px-8 max-w-2xl mx-auto">
+    <div className="px-4 md:px-8 max-w-2xl mt-32 mx-auto">
       <div className="items-center justify-center font-sans">
         <div className="flex items-start justify-start w-full mt-10">
           <motion.img
-            className="w-36 h-36 rounded-full"
+            className="w-36 h-36 rounded-full border-gray-200 border-2"
             src={me_}
             alt="me"
             initial={{ opacity: 0, y: 40 }}

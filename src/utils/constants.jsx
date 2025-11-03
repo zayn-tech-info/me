@@ -12,7 +12,7 @@ import {
 
 export const paragraphs = [
 	"Hey, I'm Yakubu Abdulbasit, a self-taught developer passionate about turning ideas into clean, responsive, and user-friendly web experiences. I love building things that not only work but also feel great to use.",
-	"I've been working with HTML, CSS, JavaScript, React.js, and Tailwind CSS, constantly sharpening my skills through real-world projects, collaborative builds, and daily practice. Whether it's crafting small UI components or developing full web applications, I enjoy every step of the creative process.",
+	"I've been working with JavaScript, React.js,Tailwind CSS, Node/Express and Mongoose, constantly sharpening my skills through real-world projects, collaborative builds, and daily practice. Whether it's crafting small UI components or developing full web applications, I enjoy every step of the creative process.",
 	"I'm currently open to opportunities where I can grow with a team, contribute to exciting products, and keep learning new tools and technologies. When I'm not coding, you'll find me exploring tech trends, helping friends debug, or sketching ideas for my next build."
   ];
 
