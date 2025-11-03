@@ -7,30 +7,30 @@ import TemuCloneImg from "../images/temu_clone.png";
 const projects = [
   {
     id: 1,
-    image: Recipeapp,
-    title: "Recipeida",
+    title: "Temu Clone",
+    image: TemuCloneImg,
     description:
-      "A recipe website with a search bar and a list of recipes. It uses the spoonacular API to fetch recipes. It also has a recipe detail page and a recipe list page. ",
-    link: "https://recipeapp-hz7o.vercel.app/",
-    tags: ["React", "Tailwind", "Vite", "Spoonacular API"],
+      "An e-commerce platform with cart and checkout functionality and test payment functionality, The project was influenced by Temu.",
+    link: "https://temu-clone-zayn.vercel.app/",
+    tags: ["React", "Tailwind css", "Javascript", "Node", "Express", "Mongodb"],
   },
   {
     id: 2,
     title: "Exclusive Shopping",
     image: Ecommerceapp,
     description:
-      "A full-featured e-commerce platform with cart and checkout functionality.",
+      "A full featured e-commerce platform with cart and checkout functionality.",
     link: "https://exclusive-shopping.vercel.app/",
     tags: ["Html", "Tailwind css", "Javascript"],
   },
   {
     id: 3,
-    title: "Temu Clone",
-    image: TemuCloneImg,
+    image: Recipeapp,
+    title: "Recipeida",
     description:
-      "A full-featured e-commerce platform with cart and checkout functionality.",
-    link: "https://temu-clone-zayn.vercel.app/",
-    tags: ["React", "Tailwind css", "Javascript", "Node", "Express", "Mongodb"],
+      "A recipe website with a search bar and a list of recipes. It uses the spoonacular API to fetch recipes. It also has a recipe detail page and a recipe list page. ",
+    link: "https://recipeapp-hz7o.vercel.app/",
+    tags: ["React", "Tailwind", "Vite", "Spoonacular API"],
   },
 ];
 
