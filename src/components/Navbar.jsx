@@ -47,7 +47,7 @@ const Navbar = () => {
 
   return (
     <div className="w-full flex justify-center">
-  <nav className="relative flex items-center bg-white/30 backdrop-blur-md border border-gray-200/40 shadow-lg rounded-full px-6 sm:px-8 py-2 w-full max-w-5xl fall-in overflow-x-auto whitespace-nowrap">
+      <nav className="relative flex items-center bg-white/30 backdrop-blur-md border border-gray-200/40 shadow-lg rounded-full px-6 sm:px-8 py-2 w-full max-w-5xl fall-in overflow-x-auto whitespace-nowrap">
         <div className="flex items-center justify-center w-full">
           <div className="flex items-center justify-center space-x-6 sm:space-x-3">
             {navItems.map(({ href, icon, label, external, download }) => (
