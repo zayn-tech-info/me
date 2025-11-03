@@ -2,6 +2,7 @@ import React from "react";
 import { ExternalLink } from "lucide-react";
 import Recipeapp from "../images/recipeida.png";
 import Ecommerceapp from "../images/ecommerce.png";
+import TemuCloneImg from "../images/temu_clone.png";
 
 const projects = [
   {
@@ -22,6 +23,15 @@ const projects = [
     link: "https://exclusive-shopping.vercel.app/",
     tags: ["Html", "Tailwind css", "Javascript"],
   },
+  {
+    id: 3,
+    title: "Temu Clone",
+    image: TemuCloneImg,
+    description:
+      "A full-featured e-commerce platform with cart and checkout functionality.",
+    link: "https://temu-clone-zayn.vercel.app/",
+    tags: ["React", "Tailwind css", "Javascript", "Node", "Express", "Mongodb"],
+  },
 ];
 
 const Projects = () => (
@@ -35,11 +45,11 @@ const Projects = () => (
       </p>
     </div>
     <div>
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-8">
         {projects.map((project) => (
           <div
             key={project.title}
-            className="bg-white rounded-2xl mt-10 border border-gray-100 shadow-lg p-8 flex flex-col h-[500px] transition-transform duration-300 hover:shadow-xl"
+            className="bg-white rounded-2xl mt-10 border border-gray-100 shadow-lg p-8 flex flex-col h-[550px] transition-transform duration-300 hover:shadow-xl"
           >
             <i className="font-medium border-2 border-gray-300 px-3 py-1 text-center rounded-xl">
               {project.title}
