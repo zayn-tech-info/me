@@ -37,7 +37,7 @@ const Navbar = () => {
       href="https://github.com/zayn-tech-info"
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-black text-white rounded-full px-4 py-1 font-medium shadow-md border border-gray-800 hover:bg-gray-900 hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out flex items-center justify-center text-sm"
+      className="bg-black text-white rounded-full px-4 py-4 font-medium shadow-md border border-gray-800 hover:bg-gray-900 hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out flex items-center justify-center text-sm"
       style={{ minWidth: "44px" }}
       aria-label="GitHub"
     >
@@ -47,9 +47,9 @@ const Navbar = () => {
 
   return (
     <div className="w-full flex justify-center">
-      <nav className="relative flex items-center bg-white border border-gray-200 shadow rounded-full px-6 sm:px-8 py-2 w-full max-w-4xl fall-in overflow-x-auto whitespace-nowrap">
+      <nav className="relative flex items-center bg-white border border-gray-200 shadow rounded-full px-5 sm:px-4 py-2 w-full max-w-5xl fall-in overflow-x-auto whitespace-nowrap">
         <div className="flex items-center justify-center w-full">
-          <div className="flex items-center justify-center space-x-1 sm:space-x-3">
+          <div className="flex items-center justify-center space-x-6 sm:space-x-3">
             {navItems.map(({ href, icon, label, external, download }) => (
               <a
                 key={label}
