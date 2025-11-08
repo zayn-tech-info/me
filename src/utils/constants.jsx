@@ -11,9 +11,9 @@ import {
 } from "react-icons/si";
 
 export const paragraphs = [
-  "Hey there, I'm Yakubu Abdulbasit, an experienced web developer with years of developing web applications. I am proficient in architecting projects from the ground up as a full stack developer with hands-on experience in front-end and back-end technologies including HTML, CSS, JavaScript, React, Node/Express, and MongoDB. My strengths include mentoring junior developers and interns, and communicating with internal and external teams.",
-  "By nature I am analytical, quick to learn, and enjoy problem-solving. I approach projects with attention to detail and a focus on maintainable, scalable solutions.",
-  "Outside of work, I enjoy spending time in nature and exploring new ideas beyond my field. I'm naturally curious and love learning about topics that broaden my perspective.",
+	"Hey there, I'm Yakubu Abdulbasit, I'm an experienced web developer skilled in designing and building scalable web applications from the ground up. As a fullstack developer, I have hands-on experience in both frontend and backend technologies, including HTML, CSS, JavaScript, React, Node.js/Express, and MongoDB.",
+	"My strengths include mentoring junior developers, collaborating effectively with cross-functional teams, and ensuring seamless communication between internal and external stakeholders.",
+	"Naturally analytical and quick to learn, I enjoy solving complex problems and continuously improving my craft. Outside of work, I find inspiration in nature and love exploring new ideas beyond my field, fueling my curiosity and broadening my perspective.",
 ];
 
 export const skills = [
