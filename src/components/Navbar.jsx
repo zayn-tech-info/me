@@ -17,7 +17,7 @@ const handleNavClick = (e, href) => {
 
 const Navbar = () => {
   return (
-    <nav className="w-fit mx-auto flex items-center gap-4 p-2 rounded-full border border-white/5 bg-charcoal/80 backdrop-blur-xl shadow-2xl animate-fade-in">
+    <nav className="w-fit mx-auto flex items-center gap-4 p-2 rounded-full border border-white/20 bg-charcoal/80 backdrop-blur-xl shadow-2xl animate-fade-in">
       {/* Icon / Logo */}
       <a
         href="#home"
