@@ -1,57 +1,67 @@
 import React from "react";
-import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
-import TypewriterText from "./TypewriterText";
-import me_ from "../images/me_.jpg";
+import { ArrowDown } from "lucide-react";
 
 const Herosection = () => {
   return (
-    <div className="px-4 md:px-8 max-w-2xl mt-32 mx-auto">
-      <div className="items-center justify-center font-sans">
-        <div className="flex items-start justify-start w-full mt-10">
-          <motion.img
-            className="w-36 h-36 rounded-full border-gray-200 border-2"
-            src={me_}
-            alt="me"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          />
-        </div>
+    <section
+      id="home"
+      className="min-h-screen flex flex-col justify-center px-6 md:px-12 max-w-[1400px] mx-auto pt-20"
+    >
+      <div className="flex flex-col gap-8 md:gap-12 relative z-10">
         <motion.div
-          className="mt-5 space-y-5"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative"
         >
-          <h1 className="text-4xl font-bold font-sans">
-            <span>
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.2 }}
-              >
-                Hello, I'm{" "}
-              </motion.span>
-              <TypewriterText words={["Yakubu Abdulbasit."]} loop={false} />
-            </span>
-          </h1>
-          <div className="flex items-center bg-green-200 rounded-2xl px-4 py-2 w-64">
-            <Briefcase className="inline-block w-7 h-7 mr-2 text-green-500 align-middle" />
-            <p className="text-2xl font-medium font-sans inline align-middle">
-              Web Developer
-            </p>
+          <div className="overflow-hidden">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-white leading-[1.1] md:leading-[1.1]">
+              Engineered
+            </h1>
           </div>
-          <p className="text-lg text-brand-gray">
-            I craft engaging, high-performance web experiences with a focus on
-            clean code, modern design, and seamless user interaction.
+          <div className="overflow-hidden">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-zinc-400 to-zinc-600 leading-[1.1] md:leading-[1.1]">
+              Simplicity.
+            </h1>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          className="max-w-xl"
+        >
+          <p className="text-lg md:text-xl text-zinc-400 font-light leading-relaxed">
+            I build scalable digital systems and intuitive interfaces. Merging
+            technical depth with creative precision to deliver products that
+            feel inevitable.
           </p>
-          <button className="border border-green-500 px-4 py-2 font-medium rounded-md">
-            Hire me.
-          </button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
+          className="flex items-center gap-6"
+        >
+          <a
+            href="#projects"
+            className="group flex items-center gap-2 text-white font-medium border-b border-white/20 pb-0.5 hover:border-accent transition-colors duration-300"
+          >
+            View Work
+            <ArrowDown
+              size={18}
+              className="-rotate-90 group-hover:rotate-0 transition-transform duration-300"
+            />
+          </a>
         </motion.div>
       </div>
-    </div>
+
+      {/* Background Decor */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
+    </section>
   );
 };
 

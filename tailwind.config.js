@@ -5,14 +5,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-indigo': '#4f46e5', // indigo-600
-        'brand-orange': '#fb923c', // orange-400
-        'brand-gray': '#64748b',   // slate-500
-        'brand-dark': '#18181b',   // zinc-900
-        'brand-light': '#f8fafc',  // zinc-50
+        'charcoal': '#09090b', // Deep charcoal / near black
+        'charcoal-light': '#18181b', // Slightly lighter for cards
+        'accent': '#8b5cf6', // Electric Purple (Violet 500)
+        'accent-glow': '#a78bfa', // Lighter purple for glow
+        'zinc-850': '#1f1f22',
       },
       fontFamily: {
-        sans: ['Sora', 'ui-sans-serif', 'system-ui'],
+        sans: ['Inter', 'sans-serif'],
+        mono: ['Fira Code', 'monospace'],
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },

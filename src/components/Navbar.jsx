@@ -1,30 +1,14 @@
-import {
-  Home,
-  User,
-  Briefcase,
-  Code,
-  Mail,
-  FileText,
-  Github,
-} from "lucide-react";
+import React from "react";
+import { User, Briefcase, Code, Mail, Github, Monitor } from "lucide-react";
 
 const navItems = [
-  { href: "#home", icon: <Home size={20} />, label: "Home" },
-  { href: "#about", icon: <User size={20} />, label: "About" },
-  { href: "#projects", icon: <Briefcase size={20} />, label: "Projects" },
-  { href: "#skills", icon: <Code size={20} />, label: "Skills" },
-  { href: "#contact", icon: <Mail size={20} />, label: "Contact" },
-  {
-    href: "/resume.pdf",
-    icon: <FileText size={20} />,
-    label: "Resume",
-    download: true,
-  },
+  { href: "#projects", icon: <Briefcase size={18} />, label: "Work" },
+  { href: "#skills", icon: <Code size={18} />, label: "Skills" },
+  { href: "#about", icon: <User size={18} />, label: "About" },
+  { href: "#contact", icon: <Mail size={18} />, label: "Contact" },
 ];
 
-// Smooth scroll handler used by nav links
-const handleNavClick = (e, href, external, download) => {
-  if (external || download || !href.startsWith("#")) return;
+const handleNavClick = (e, href) => {
   e.preventDefault();
   const id = href.replace("#", "");
   const el = document.getElementById(id);
@@ -32,49 +16,45 @@ const handleNavClick = (e, href, external, download) => {
 };
 
 const Navbar = () => {
-  const githubButton = (
-    <a
-      href="https://github.com/zayn-tech-info"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="bg-black text-white rounded-full px-4 py-4 font-medium shadow-md border border-gray-800 hover:bg-gray-900 hover:scale-105 hover:shadow-lg transition-all duration-300 ease-in-out flex items-center justify-center text-sm"
-      style={{ minWidth: "44px" }}
-      aria-label="GitHub"
-    >
-      <Github className="w-5 h-5 text-green-500" />
-    </a>
-  );
-
   return (
-    <div className="w-full flex justify-center">
-      <nav className="relative flex items-center bg-white/30 backdrop-blur-md border border-gray-200/40 shadow-lg rounded-full px-6 sm:px-8 py-2 w-full max-w-5xl fall-in overflow-x-auto whitespace-nowrap hide-scrollbar">
-        <div className="flex items-center justify-center w-full">
-          <div className="flex items-center justify-center space-x-6 sm:space-x-3">
-            {navItems.map(({ href, icon, label, external, download }) => (
-              <a
-                key={label}
-                href={href}
-                target={external ? "_blank" : undefined}
-                rel={external ? "noopener noreferrer" : undefined}
-                download={download ? "resume.pdf" : undefined}
-                className="group relative p-0.5 sm:p-1 text-gray-600 transition-all duration-300 ease-in-out rounded-full focus:outline-none focus:ring-2 focus:ring-green-300 flex items-center justify-center"
-                onClick={(e) => handleNavClick(e, href, external, download)}
-              >
-                <span className="flex items-center justify-center w-7 h-7 sm:w-9 sm:h-9 rounded-full transition-all duration-300 ease-in-out group-hover:bg-green-100 group-hover:shadow-lg group-hover:ring-2 group-hover:ring-green-200 group-hover:text-green-600 group-hover:scale-110">
-                  {icon}
-                </span>
-                <span className="absolute left-1/2 -translate-x-1/2 top-full mt-3 whitespace-nowrap rounded-lg bg-gray-900 px-3 py-1 text-sm text-white opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300 ease-in-out shadow-lg z-10 hidden sm:block">
-                  {label}
-                </span>
-              </a>
-            ))}
-          </div>
+    <nav className="w-fit mx-auto flex items-center gap-4 p-2 rounded-full border border-white/5 bg-charcoal/80 backdrop-blur-xl shadow-2xl animate-fade-in">
+      {/* Icon / Logo */}
+      <a
+        href="#home"
+        onClick={(e) => handleNavClick(e, "#home")}
+        className="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800/50 hover:bg-accent hover:text-white text-zinc-400 transition-all duration-300"
+      >
+        <Monitor size={20} />
+      </a>
 
-          <span className="h-6 w-px bg-gray-200 mx-4 hidden sm:inline-block" />
-          <div className="ml-2">{githubButton}</div>
-        </div>
-      </nav>
-    </div>
+      <div className="h-6 w-px bg-white/10 mx-1"></div>
+
+      <div className="flex items-center gap-1">
+        {navItems.map(({ href, icon, label }) => (
+          <a
+            key={label}
+            href={href}
+            onClick={(e) => handleNavClick(e, href)}
+            className="relative px-4 py-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-300 group"
+          >
+            <span className="relative z-10">{label}</span>
+            <span className="absolute inset-0 rounded-full bg-white/5 scale-0 group-hover:scale-100 transition-transform duration-300 ease-out"></span>
+          </a>
+        ))}
+      </div>
+
+      <div className="h-6 w-px bg-white/10 mx-1"></div>
+
+      <a
+        href="https://github.com/zayn-tech-info"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-800/50 hover:bg-white hover:text-black text-white transition-all duration-300"
+        aria-label="GitHub"
+      >
+        <Github size={20} />
+      </a>
+    </nav>
   );
 };
 
