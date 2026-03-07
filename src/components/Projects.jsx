@@ -38,7 +38,7 @@ const projects = [
     tags: ["React", "Vite", "REST API", "Tailwind"],
   },
   {
-    id: 4,
+        id: 4,
     title: "Temu Clone",
     category: "E-Commerce Architecture",
     image: TemuCloneImg,
