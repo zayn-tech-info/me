@@ -1,10 +1,12 @@
-import React from "react";
-import { ArrowUpRight } from "lucide-react";
+import React, { useState } from "react";
+import { ArrowUpRight, ChevronDown, ChevronUp } from "lucide-react";
 import Recipeapp from "../images/recipeida.png";
 import Ecommerceapp from "../images/ecommerce.png";
 import TemuCloneImg from "../images/temu_clone.png";
 import Shopydash from "../images/shopydash.png";
 import Vanita from "../images/vanita.png";
+
+const DESCRIPTION_PREVIEW_LENGTH = 120;
 
 const projects = [
     {
@@ -50,6 +52,24 @@ const projects = [
 ];
 
 const Projects = () => {
+  const [expandedIds, setExpandedIds] = useState(new Set());
+
+  const toggleDescription = (id) => {
+    setExpandedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const getPreview = (text) => {
+    if (text.length <= DESCRIPTION_PREVIEW_LENGTH) return text;
+    return text.slice(0, DESCRIPTION_PREVIEW_LENGTH).trim() + "...";
+  };
+
+  const needsReadMore = (text) => text.length > DESCRIPTION_PREVIEW_LENGTH;
+
   return (
     <section id="projects" className="py-24 md:py-32 bg-zinc-950">
       <div className="px-6 md:px-12 max-w-[1200px] mx-auto">
@@ -64,26 +84,25 @@ const Projects = () => {
           </h3>
         </div>
 
-        {/* Sticky Cards Container */}
+        {/* Sticky Cards Container - each card has min-height so next doesn't cover before fully viewed */}
         <div className="flex flex-col gap-12 pb-24">
           {projects.map((project, index) => {
-            // Distinct visual rhythm
+            const isExpanded = expandedIds.has(project.id);
+            const showReadMore = needsReadMore(project.description);
             return (
               <div
                 key={project.id}
-                className="sticky top-24 md:top-32 self-start w-full"
+                className="sticky top-24 md:top-32 self-start w-full min-h-[85vh] flex flex-col"
                 style={{
-                  // Stacking effect calculation
                   top: `calc(100px + ${index * 40}px)`,
-                  // Ensure proper layering
                   zIndex: index + 1,
                 }}
               >
-                <div className="bg-zinc-900 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 hover:border-white/20 hover:shadow-accent/5">
-                  <div className="grid lg:grid-cols-2 gap-8 md:gap-12 p-8 md:p-12 items-center">
+                <div className="bg-zinc-900 border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl transition-all duration-500 hover:border-white/20 hover:shadow-accent/5 flex-1 min-h-0">
+                  <div className="grid lg:grid-cols-2 gap-8 md:gap-12 p-8 md:p-12 items-start min-h-[75vh]">
                     {/* Text Content */}
-                    <div className="order-2 lg:order-1 space-y-8">
-                      <div className="flex items-center gap-4">
+                    <div className="order-2 lg:order-1 space-y-6 flex flex-col min-h-0">
+                      <div className="flex items-center gap-4 shrink-0">
                         <span className="text-4xl font-bold text-white/10 font-mono">
                           0{index + 1}
                         </span>
@@ -93,16 +112,46 @@ const Projects = () => {
                         </span>
                       </div>
 
-                      <div>
-                        <h4 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                      <div className="min-h-0 flex flex-col flex-1">
+                        <h4 className="text-3xl md:text-5xl font-bold text-white mb-4 shrink-0">
                           {project.title}
                         </h4>
-                        <p className="text-zinc-400 text-lg leading-relaxed font-light">
-                          {project.description}
-                        </p>
+                        <div className="flex flex-col gap-2 min-h-0">
+                          {!isExpanded ? (
+                            <p className="text-zinc-400 text-lg leading-relaxed font-light">
+                              {getPreview(project.description)}
+                            </p>
+                          ) : (
+                            <div
+                              className="text-zinc-400 text-lg leading-relaxed font-light overflow-y-auto pr-2 max-h-[200px] rounded"
+                              style={{ scrollbarGutter: "stable" }}
+                            >
+                              {project.description}
+                            </div>
+                          )}
+                          {showReadMore && (
+                            <button
+                              type="button"
+                              onClick={() => toggleDescription(project.id)}
+                              className="inline-flex items-center gap-1 text-accent hover:text-accent/80 text-sm font-medium mt-1 transition-colors"
+                            >
+                              {isExpanded ? (
+                                <>
+                                  <ChevronUp size={16} />
+                                  Read less
+                                </>
+                              ) : (
+                                <>
+                                  <ChevronDown size={16} />
+                                  Read more
+                                </>
+                              )}
+                            </button>
+                          )}
+                        </div>
                       </div>
 
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 shrink-0">
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
@@ -113,7 +162,7 @@ const Projects = () => {
                         ))}
                       </div>
 
-                      <div className="pt-4">
+                      <div className="pt-4 shrink-0">
                         <a
                           href={project.link}
                           target="_blank"
@@ -132,7 +181,7 @@ const Projects = () => {
                     </div>
 
                     {/* Image Content */}
-                    <div className="order-1 lg:order-2 relative aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden bg-black/50 group">
+                    <div className="order-1 lg:order-2 relative aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden bg-black/50 group shrink-0">
                       <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay"></div>
                       <img
                         src={project.image}
